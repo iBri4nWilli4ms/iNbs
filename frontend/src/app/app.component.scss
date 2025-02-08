@@ -1,0 +1,32 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    flex: 0 0 auto; // Header ocupa su tamaño natural
+}
+
+.main-content {
+    scrollbar-gutter: stable both-edges;
+    flex: 1 1 auto; // Main content ocupa el espacio restante
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.footer {
+    flex: 0 0 auto; // Footer ocupa su tamaño natural
+}
+
+.router {
+    // background-color: antiquewhite;
+    align-content: flex-start;
+    justify-content: center;
+    padding: 16px; // Agrega un padding al contenido dinámico
+}
+
+/* Ocultar completamente el scroll en navegadores modernos */
+// ::-webkit-scrollbar {
+//     display: none;
+// }

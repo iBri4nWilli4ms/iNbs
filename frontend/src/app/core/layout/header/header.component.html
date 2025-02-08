@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="header" [ngClass]="{'scrolled': isScrolled()}">
+    <!-- Nombre o Marca Personal -->
+    <span class="brand" appHighlight>BW Portfolio</span>
+
+    <!-- Espaciador para centrar el contenido -->
+    <span class="spacer"></span>
+
+    <!-- Botones de Navegación -->
+    <!-- <button mat-button routerLink="/home">Inicio</button>
+    <button mat-button routerLink="/about">Sobre mí</button>
+    <button mat-button routerLink="/projects">Proyectos</button>
+    <button mat-button routerLink="/contact">Contacto</button> -->
+
+    <!-- Cambio de Tema -->
+    <button mat-icon-button aria-label="Toggle Dark Mode" (click)="this.themeService.toggleTheme()">
+        <mat-icon>{{ this.themeService.getTheme() === 'light' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
+    <button mat-flat-button disabled>Iniciar Sesion</button>
+
+    <!-- Menú Responsive -->
+    <!-- <button mat-icon-button aria-label="Abrir menú">
+        <mat-icon>menu</mat-icon>
+    </button> -->
+</mat-toolbar>

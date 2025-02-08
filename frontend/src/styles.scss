@@ -1,4 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+    color-scheme: light;
+    @include mat.theme((color: mat.$azure-palette,
+            typography: Roboto,
+            density: 0));
+}
+
+body.light-theme {
+    --shadow-color: rgb(255, 255, 255);
+    color-scheme: light;
+    /* Color de sombra para tema claro */
+    @include mat.theme((color: mat.$cyan-palette,
+            typography: Roboto,
+            density: 0));
+}
+
+body.dark-theme {
+    --shadow-color: rgb(0, 0, 0);
+    /* Color de sombra para tema oscuro */
+    background-color: #2e3440; // Azul oscuro Nord
+    color: #d8dee9; // Texto claro Nord 
+    color-scheme: dark;
+    @include mat.theme((color: mat.$cyan-palette,
+            typography: Roboto,
+            density: 0));
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Mat-Toolbar Spacer */
+.spacer {
+    flex: 1 1 auto;
+}

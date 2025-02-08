@@ -1,0 +1,84 @@
+<nav class="floating-menu" aria-label="Sections">
+    <ul>
+        @for (section of sections; track section) {
+        <li class="menu-item" [class.active]="activeSection === section" role="listitem"
+            [attr.aria-current]="activeSection === section ? 'page' : undefined">
+            <span class="line"></span>
+            <button mat-button class="label" role="button" [attr.aria-label]="'Ir a ' + section"
+                (click)="setActiveSection(section)">
+                {{ section | uppercase }}
+            </button>
+        </li>
+        }
+    </ul>
+</nav>
+
+
+<!-- Contenedor de Secciones -->
+<main class="sections-container" (scroll)="onScroll($event)">
+    @defer {
+    <!-- Acerca de Mí -->
+    <section id="about" class="section" @morphTransition>
+        <div class="content">
+            <h1 mat-title>Hola, soy [Tu Nombre]</h1>
+            <p mat-subtitle>Desarrollador Full-Stack apasionado por crear soluciones innovadoras.</p>
+            <img src="assets/avatar.png" alt="Avatar" class="avatar" />
+        </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section id="technologies" class="section" @morphTransition>
+        <div class="content">
+            <h1 mat-title>Tecnologías</h1>
+            <mat-grid-list cols="4" rowHeight="100px" gutterSize="20px">
+                <mat-grid-tile *ngFor="let tech of technologies">
+                    <div class="tech-item">
+                        <mat-icon>{{ tech.icon }}</mat-icon>
+                        <p>{{ tech.name }}</p>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="projects" class="section" @morphTransition>
+        <div class="content">
+            <h1 mat-title>Proyectos</h1>
+            <div class="project-grid">
+                <mat-card *ngFor="let project of projects" class="project-card">
+                    <img mat-card-image [src]="project.image" [alt]="project.title" />
+                    <mat-card-title>{{ project.title }}</mat-card-title>
+                    <mat-card-content>
+                        <p>{{ project.description }}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <a mat-button [href]="project.link" target="_blank">Ver Demo</a>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="section" @morphTransition>
+        <div class="content">
+            <h1 mat-title>Contacto</h1>
+            <form class="contact-form">
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Nombre" required />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Correo Electrónico" type="email" required />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <textarea matInput placeholder="Mensaje" rows="5" required></textarea>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+    } @placeholder {
+    <div class="loading">Cargando...</div>
+    }
+</main>

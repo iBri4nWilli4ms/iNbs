@@ -1,0 +1,35 @@
+@use '@angular/material' as mat;
+
+.header {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: box-shadow 0.3s ease; // Transición suave para la sombra
+
+    &.scrolled {
+        /* Fondo semi-transparente */
+        backdrop-filter: blur(10px);
+        /* Efecto de desenfoque */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Predeterminado
+    }
+
+    .brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .spacer {
+        flex: 1;
+    }
+
+    button {
+        margin: 0 8px;
+    }
+
+    .mat-icon {
+        font-size: 20px;
+    }
+}
