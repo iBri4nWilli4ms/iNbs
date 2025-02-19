@@ -13,9 +13,9 @@
 
     <!-- Cambio de Tema -->
     <button mat-icon-button aria-label="Toggle Dark Mode" (click)="this.themeService.toggleTheme()">
-        <mat-icon>{{ this.themeService.getTheme() === 'light' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+        <mat-icon>{{this.themeService.getTheme() === 'light' ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </button>
-    <button mat-flat-button disabled>Iniciar Sesion</button>
+    <button mat-flat-button>Iniciar Sesion</button>
 
     <!-- Menú Responsive -->
     <!-- <button mat-icon-button aria-label="Abrir menú">

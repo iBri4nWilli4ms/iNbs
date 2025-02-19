@@ -1,0 +1,54 @@
+@use '@angular/material' as mat;
+
+:root {
+    @include mat.dialog-overrides((container-color: transparent,
+            subhead-color: red,
+        ));
+}
+
+.container {
+    background-color: transparent;
+
+}
+
+mat-dialog-content {
+    background: transparent;
+    // background-color: #1976d2;
+}
+
+.tech-stack-item {
+    margin-bottom: 20px;
+}
+
+.tech-stack-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+
+}
+
+.tech-stack-icon {
+    width: 40px;
+    height: 40px;
+    background-color: antiquewhite;
+}
+
+.tech-stack-item h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.tech-stack-item p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.tech-stack-item a {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+.tech-stack-item a:hover {
+    text-decoration: underline;
+}

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, effect, HostListener, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ScrollService } from '../../../../core/services/scroll.service';
 
 
 
@@ -31,38 +32,18 @@ export const morphTransition = trigger('morphTransition', [
   animations: [morphTransition]
 })
 export class HomePageComponent {
-  activeSection: string = 'about';
   sections = ['about', 'technologies', 'projects', 'contact'];
+  scrollService = inject(ScrollService)
+  activeSection = this.scrollService.activeSection; // Signal para el estado del tema
 
-  setActiveSection(section: string): void {
-    this.activeSection = section;
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+
+  constructor() {
+    this.scrollService.activeSection.set('about');
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event): void {
-    const scrollPosition = window.scrollY;
-
-    // Detectar la sección activa
-    this.sections.forEach((section) => {
-      const element = document.getElementById(section);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-          this.activeSection = section;
-        }
-      }
-    });
+  setActiveSection(sectionId: string): void {
+    this.scrollService.setActiveSection(sectionId); // Delega al servicio
   }
-
-
-
-
-
-
 
   // Datos de Proyectos
   projects = [

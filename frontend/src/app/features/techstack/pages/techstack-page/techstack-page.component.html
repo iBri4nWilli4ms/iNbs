@@ -1,0 +1,25 @@
+<!-- src/app/features/tech-stack/components/tech-stack-dialog/tech-stack-dialog.component.html -->
+<div class="container">
+
+    <h2 mat-dialog-title>Herramientas Utilizadas</h2>
+    <mat-dialog-content class="mat-typography">
+        @for (item of techStack; track item.name) {
+        <div class="tech-stack-item">
+            <div class="tech-stack-header">
+                @if (item.icon) {
+                <img [src]="item.icon" [alt]="item.name" class="tech-stack-icon" />
+                }
+                <h3>{{ item.name }}</h3>
+            </div>
+            <p>{{ item.description }}</p>
+            @if (item.url) {
+            <a [href]="item.url" target="_blank">Más información</a>
+            }
+        </div>
+        }
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cerrar</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+    </mat-dialog-actions>
+</div>

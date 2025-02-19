@@ -1,0 +1,58 @@
+/* Contenedor principal del botón */
+.custom-toggle-button {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0vh;
+    z-index: 1001;
+    transition: all 0.5s ease-in-out;
+    /* Transición suave */
+}
+
+/* Cambiar posición cuando está arriba */
+.custom-toggle-button.top {
+    bottom: auto;
+    top: 0vh;
+    /* Cambia a la parte superior */
+}
+
+/* Contenido interno del botón */
+.button-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Espacio mínimo entre el texto y el ícono */
+    cursor: pointer;
+    background-color: transparent;
+    /* Fondo transparente */
+    padding: 1vh;
+    border-radius: 50%;
+    /* Forma circular */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Texto del botón */
+.button-content span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: inherit;
+    /* Usa el color del tema */
+}
+
+/* Ícono del botón */
+.button-content mat-icon.icon {
+    font-size: 1rem;
+    /* Tamaño grande */
+    color: inherit;
+    /* Usa el color del tema */
+    transform: rotate(0deg);
+    /* Rotación inicial */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Rotación del ícono hacia arriba */
+.custom-toggle-button.top mat-icon.icon {
+    transform: rotate(360deg);
+    /* Rota el ícono */
+}

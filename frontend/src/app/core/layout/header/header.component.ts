@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ThemeService } from '../../../core/services/theme.service';
+import { ScrollService } from '../../services/scroll.service';
 // import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-header',
@@ -13,8 +14,7 @@ import { ThemeService } from '../../../core/services/theme.service';
 })
 export class HeaderComponent implements OnInit {
 
-
-  isScrolled = signal(false); // Signal para el estado de scroll
+  isScrolled = inject(ScrollService).isScrolled; // Observa la señal de scroll
 
   themeService = inject(ThemeService);
 

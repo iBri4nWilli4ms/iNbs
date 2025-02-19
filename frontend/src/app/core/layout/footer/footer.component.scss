@@ -1,17 +1,22 @@
 .footer {
     display: flex;
     align-items: center;
+    justify-content: center;
     background: transparent;
     flex-wrap: wrap;
-    // position: absolute;
-    position: sticky;
+    position: absolute;
+    // position: sticky;
     bottom: 0;
-    z-index: 1000;
-    /* Añade algo de padding si es necesario */
-}
+    width: auto;
+    pointer-events: none; // Hace que el contenedor no bloquee clics
 
-.divider {
-    font-size: 1.2rem;
-    margin: 0 4px;
-    margin-right: 12px;
+    button,
+    a {
+        pointer-events: all; // Solo los botones son clickeables
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
 }

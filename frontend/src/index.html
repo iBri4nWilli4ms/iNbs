@@ -6,12 +6,34 @@
   <title>iNbs</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bienvenido a mi Web.">
+  <meta name="robots" content="index, follow">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload de la fuente crítica (ej. para títulos) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+  </noscript>
+
+  <!-- Carga diferida de las demás fuentes para optimizar rendimiento -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" media="print"
+    onload="this.media='all'">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Krona+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    media="print" onload="this.media='all'">
 </head>
 
+
 <body class="mat-typography">
+  <div id="loading-screen" role="status" aria-live="polite">
+    <h1>Cargando<h1>
+        <div class="loading-bar" aria-hidden="true"></div>
+  </div>
   <app-root></app-root>
 </body>
 

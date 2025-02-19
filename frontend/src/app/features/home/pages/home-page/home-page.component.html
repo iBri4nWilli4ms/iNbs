@@ -1,28 +1,37 @@
-<nav class="floating-menu" aria-label="Sections">
-    <ul>
-        @for (section of sections; track section) {
-        <li class="menu-item" [class.active]="activeSection === section" role="listitem"
-            [attr.aria-current]="activeSection === section ? 'page' : undefined">
-            <span class="line"></span>
-            <button mat-button class="label" role="button" [attr.aria-label]="'Ir a ' + section"
-                (click)="setActiveSection(section)">
-                {{ section | uppercase }}
-            </button>
-        </li>
-        }
-    </ul>
-</nav>
-
-
 <!-- Contenedor de Secciones -->
-<main class="sections-container" (scroll)="onScroll($event)">
+<main class="sections-container">
     @defer {
+    <!-- floating-menu.component.html -->
+    <nav class="floating-menu" aria-label="Sections">
+        <ul>
+            @for (section of sections; track section) {
+            <li class="menu-item" [class.active]="activeSection() === section" role="listitem"
+                [attr.aria-current]="activeSection() === section ? 'page' : undefined">
+                <span class="line"></span>
+                <button mat-button class="label" role="button" [attr.aria-label]="'Ir a ' + section"
+                    (click)="setActiveSection(section)">
+                    {{ section | uppercase }}
+                </button>
+            </li>
+            }
+        </ul>
+    </nav>
+
+
     <!-- Acerca de Mí -->
     <section id="about" class="section" @morphTransition>
         <div class="content">
-            <h1 mat-title>Hola, soy [Tu Nombre]</h1>
-            <p mat-subtitle>Desarrollador Full-Stack apasionado por crear soluciones innovadoras.</p>
             <img src="assets/avatar.png" alt="Avatar" class="avatar" />
+
+            <div class="text-content">
+                <h1 mat-title>Hola, soy [Tu Nombre]</h1>
+                <p mat-subtitle>Desarrollador Full-Stack apasionado por crear soluciones innovadoras.</p>
+                <p class="description">
+                    Soy un desarrollador con experiencia en tecnologías frontend y backend. Me encanta resolver
+                    problemas complejos y
+                    construir aplicaciones web escalables y eficientes.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -40,7 +49,6 @@
             </mat-grid-list>
         </div>
     </section>
-
     <!-- Proyectos -->
     <section id="projects" class="section" @morphTransition>
         <div class="content">
@@ -59,7 +67,6 @@
             </div>
         </div>
     </section>
-
     <!-- Contacto -->
     <section id="contact" class="section" @morphTransition>
         <div class="content">
@@ -76,6 +83,12 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary" type="submit">Enviar</button>
             </form>
+        </div>
+    </section>
+
+    <section id="contact" class="section" @morphTransition>
+        <div class="content">
+
         </div>
     </section>
     } @placeholder {

@@ -1,11 +1,26 @@
-<div class="app-container">
+<!-- Contenido Normal -->
+<div class="app-container" [class.hidden]="isContentHidden()">
   <!-- Encabezado -->
   <app-header></app-header>
-  <!-- Contenido principal -->
+
+  <!-- Contenido Principal -->
   <main class="main-content">
     <router-outlet #myOutlet="outlet"></router-outlet>
   </main>
-  <app-floating-chat></app-floating-chat>
-  <!-- Pie de página -->
+  <app-conversmarthub-page></app-conversmarthub-page>
+  <!-- Pie de Página -->
   <app-footer></app-footer>
 </div>
+
+<!-- Contenido Oculto -->
+<div class="hidden-container" [class.visible]="isContentHidden()">
+  @defer (on viewport) {
+  <app-about-minimal-page></app-about-minimal-page>
+  } @placeholder {
+  <div class="placeholder">Cargando contenido oculto...</div>
+  }
+</div>
+
+<!-- Botón para Alternar -->
+<!-- Botón Personalizado -->
+<app-directional-button [isContentHidden]="isContentHidden" (toggle)="toggleContent()"></app-directional-button>

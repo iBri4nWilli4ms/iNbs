@@ -23,10 +23,82 @@
     // background-color: antiquewhite;
     align-content: flex-start;
     justify-content: center;
-    padding: 16px; // Agrega un padding al contenido dinámico
+    // padding: 16px; // Agrega un padding al contenido dinámico
 }
 
-/* Ocultar completamente el scroll en navegadores modernos */
-// ::-webkit-scrollbar {
-//     display: none;
-// }
+.main-content::-webkit-scrollbar {
+    display: none; // Chrome, Safari y Edge
+}
+
+
+/* Contenedor principal */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    transition: transform 0.5s ease-in-out;
+}
+
+.header {
+    flex: 0 0 auto;
+    /* Header ocupa su tamaño natural */
+}
+
+.main-content {
+    scrollbar-gutter: stable both-edges;
+    flex: 1 1 auto;
+    /* Main content ocupa el espacio restante */
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.footer {
+    flex: 0 0 auto;
+    /* Footer ocupa su tamaño natural */
+}
+
+/* Cuando el contenido normal está oculto */
+.app-container.hidden {
+    transform: translateY(-100%);
+    /* Desplaza todo el app-container hacia arriba */
+}
+
+/* Contenedor del contenido oculto */
+.hidden-container {
+    position: fixed;
+    top: 100%;
+    /* Inicialmente fuera de la vista */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: inherit;
+    /* Usa el mismo fondo que el tema */
+    z-index: 1000;
+    transition: transform 0.5s ease-in-out;
+    // transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.hidden-container.visible {
+    transform: translateY(-100%);
+    /* Desplaza hacia arriba */
+}
+
+/* Placeholder para el contenido oculto */
+.placeholder {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Botón de alternancia */
+.toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    z-index: 1001;
+}
+
+.toggle-button mat-icon {
+    font-size: 24px;
+}

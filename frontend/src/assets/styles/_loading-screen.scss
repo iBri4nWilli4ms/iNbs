@@ -1,0 +1,67 @@
+// Fondo dinámico según la preferencia del usuario
+@media (prefers-color-scheme: dark) {
+    #loading-screen {
+        background: #1e1e1e;
+        color: #ffffff;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    #loading-screen {
+        background: #ffffff;
+        color: #000000;
+    }
+}
+
+// #loading-screen::before {}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.loading-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1vh;
+    background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c);
+    animation: loadingBarAnimation 2s infinite;
+    z-index: 9999;
+}
+
+@keyframes loadingBarAnimation {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
