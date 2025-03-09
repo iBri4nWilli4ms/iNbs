@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { DirectionalButtonComponent } from './shared/components/directional-button/directional-button.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, DirectionalButtonComponent, ConversmarthubPageComponent, AboutMinimalPageComponent, MatIconModule, MatButtonModule],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, ConversmarthubPageComponent, AboutMinimalPageComponent, MatIconModule, MatButtonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -19,10 +19,20 @@ export class AppComponent implements OnInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
   }
   // Creamos un Signal para manejar el estado
-  isContentHidden = signal(false);
+  isContentHidden = signal(false); // Estado inicial: contenido normal visible
+  isPreviewVisible = signal(false); // Estado del preview
+
+  showPreview() {
+    this.isPreviewVisible.set(true); // Muestra el preview
+  }
+
+  hidePreview() {
+    this.isPreviewVisible.set(false); // Oculta el preview
+  }
 
   toggleContent() {
-    this.isContentHidden.update((value) => !value); // Alterna el valor del Signal
+    this.isContentHidden.update((value) => !value); // Alterna entre true y false
+    this.isPreviewVisible.set(false); // Restablece el preview
   }
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {

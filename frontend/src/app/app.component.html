@@ -8,8 +8,13 @@
     <router-outlet #myOutlet="outlet"></router-outlet>
   </main>
   <app-conversmarthub-page></app-conversmarthub-page>
+
   <!-- Pie de Página -->
   <app-footer></app-footer>
+
+  <!-- Área de hover en la parte inferior -->
+  <div class="hover-area bottom" (mouseenter)="showPreview()" (mouseleave)="hidePreview()" (click)="toggleContent()">
+  </div>
 </div>
 
 <!-- Contenido Oculto -->
@@ -19,8 +24,7 @@
   } @placeholder {
   <div class="placeholder">Cargando contenido oculto...</div>
   }
-</div>
 
-<!-- Botón para Alternar -->
-<!-- Botón Personalizado -->
-<app-directional-button [isContentHidden]="isContentHidden" (toggle)="toggleContent()"></app-directional-button>
+  <!-- Área de hover en la parte superior -->
+  <div class="hover-area top" (mouseenter)="showPreview()" (mouseleave)="hidePreview()" (click)="toggleContent()"></div>
+</div>
