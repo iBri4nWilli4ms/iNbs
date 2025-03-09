@@ -8,9 +8,11 @@ import { isPlatformBrowser } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { DirectionalButtonComponent } from './shared/components/directional-button/directional-button.component';
+import { ParticlesComponent } from "./core/layout/particles/particles.component";
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, ConversmarthubPageComponent, AboutMinimalPageComponent, MatIconModule, MatButtonModule],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, ConversmarthubPageComponent, AboutMinimalPageComponent, MatIconModule, MatButtonModule, ParticlesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

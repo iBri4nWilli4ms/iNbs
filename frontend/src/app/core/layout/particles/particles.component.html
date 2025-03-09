@@ -1,1 +1,4 @@
-<p>particles works!</p>
+@if (isBrowser) {
+<ngx-particles [id]="'tsparticles'" [options]="particlesOptions" [particlesInit]="particlesInit"
+    aria-hidden="true"></ngx-particles>
+}

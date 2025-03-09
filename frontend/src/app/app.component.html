@@ -6,6 +6,7 @@
   <!-- Contenido Principal -->
   <main class="main-content">
     <router-outlet #myOutlet="outlet"></router-outlet>
+
   </main>
   <app-conversmarthub-page></app-conversmarthub-page>
 
@@ -20,6 +21,8 @@
 <!-- Contenido Oculto -->
 <div class="hidden-container" [class.visible]="isContentHidden()">
   @defer (on viewport) {
+  <app-particles></app-particles>
+
   <app-about-minimal-page></app-about-minimal-page>
   } @placeholder {
   <div class="placeholder">Cargando contenido oculto...</div>
